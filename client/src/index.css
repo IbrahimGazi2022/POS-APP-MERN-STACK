@@ -1,0 +1,13 @@
+* {
+    margin: 0;
+}
+
+.ant-layout-sider-children {
+    height: 97.5vh !important;
+}
+
+.title {
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
