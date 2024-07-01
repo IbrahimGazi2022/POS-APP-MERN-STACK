@@ -8,6 +8,8 @@ import {
 } from '@ant-design/icons';
 import { Button, Layout, Menu, theme } from 'antd';
 const { Header, Sider, Content } = Layout;
+import { Link } from 'react-router-dom'
+
 const MainLayout = () => {
   const [collapsed, setCollapsed] = useState(false);
   const {
@@ -26,18 +28,29 @@ const MainLayout = () => {
             {
               key: '1',
               icon: <UserOutlined />,
-              label: 'nav 1',
+              label: <Link to="/home">Home</Link>,
             },
             {
               key: '2',
               icon: <VideoCameraOutlined />,
-              label: 'nav 2',
+              label: <Link to="/cart">Cart</Link>,
             },
             {
               key: '3',
               icon: <UploadOutlined />,
-              label: 'nav 3',
+              label: <Link to="/bills">Bills</Link>,
             },
+            {
+              key: '4',
+              icon: <UploadOutlined />,
+              label: <Link to="/customers">Customers</Link>,
+            },
+            {
+              key: '5',
+              icon: <UploadOutlined />,
+              label: 'Logout',
+            },
+
           ]}
         />
       </Sider>
