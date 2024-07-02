@@ -1,11 +1,5 @@
 import React, { useState } from 'react';
-import {
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-} from '@ant-design/icons';
+import { MenuFoldOutlined, HomeOutlined, ShoppingCartOutlined, MoneyCollectOutlined, UserAddOutlined, LogoutOutlined } from '@ant-design/icons';
 import { Button, Layout, Menu, theme } from 'antd';
 const { Header, Sider, Content } = Layout;
 import { Link } from 'react-router-dom'
@@ -27,27 +21,27 @@ const MainLayout = () => {
           items={[
             {
               key: '1',
-              icon: <UserOutlined />,
+              icon: <HomeOutlined />,
               label: <Link to="/home">Home</Link>,
             },
             {
               key: '2',
-              icon: <VideoCameraOutlined />,
+              icon: <ShoppingCartOutlined />,
               label: <Link to="/cart">Cart</Link>,
             },
             {
               key: '3',
-              icon: <UploadOutlined />,
+              icon: <MoneyCollectOutlined />,
               label: <Link to="/bills">Bills</Link>,
             },
             {
               key: '4',
-              icon: <UploadOutlined />,
+              icon: <UserAddOutlined />,
               label: <Link to="/customers">Customers</Link>,
             },
             {
               key: '5',
-              icon: <UploadOutlined />,
+              icon: <LogoutOutlined />,
               label: 'Logout',
             },
 
