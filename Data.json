@@ -1,0 +1,38 @@
+[
+    {
+        "name": "Biryani Masala",
+        "image": "https://www.sfbl.com.bd/uploaded_files/300tn_thumb_BIRIYANI.PNG",
+        "price": 60,
+        "category": "ready mix"
+    },
+    {
+        "name": "Meat Curry Masala",
+        "image": "https://www.sfbl.com.bd/uploaded_files/300tn_thumb_Meat%20Curry%20(3).png",
+        "price": 90,
+        "category": "ready mix"
+    },
+    {
+        "name": "Borhani Masala",
+        "image": "https://www.sfbl.com.bd/uploaded_files/300tn_thumb_Borhani.PNG",
+        "price": 40,
+        "category": "ready mix"
+    },
+    {
+        "name": "Turmeric Powder",
+        "image": "https://www.sfbl.com.bd/uploaded_files/300tn_thumb_turmeric(1).png",
+        "price": "75",
+        "category": "besic spices"
+    },
+    {
+        "name": "Chilli Powder",
+        "image": "https://www.sfbl.com.bd/uploaded_files/300tn_thumb_Untitled%20design(1).png",
+        "price": "75",
+        "category": "besic spices"
+    },
+    {
+        "name": "Haleem Mix",
+        "image": "https://www.sfbl.com.bd/uploaded_files/300tn_thumb_Haleem%20Mix.PNG",
+        "price": "70",
+        "category": "Pulses & Cereals"
+    }
+]

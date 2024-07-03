@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MenuFoldOutlined, HomeOutlined, ShoppingCartOutlined, MoneyCollectOutlined, UserAddOutlined, LogoutOutlined } from '@ant-design/icons';
+import { MenuFoldOutlined, HomeOutlined, ShoppingCartOutlined, MoneyCollectOutlined, UserAddOutlined, LogoutOutlined, UnorderedListOutlined} from '@ant-design/icons';
 import { Button, Layout, Menu, theme } from 'antd';
 const { Header, Sider, Content } = Layout;
 import { Link } from 'react-router-dom'
@@ -41,6 +41,11 @@ const MainLayout = () => {
             },
             {
               key: '5',
+              icon: <UnorderedListOutlined />,
+              label: <Link to="/item">Item</Link>,
+            },
+            {
+              key: '6',
               icon: <LogoutOutlined />,
               label: 'Logout',
             },
