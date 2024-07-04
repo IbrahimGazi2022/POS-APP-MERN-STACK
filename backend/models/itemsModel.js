@@ -1,4 +1,4 @@
-import mongoose, { model } from "mongoose"
+import mongoose from "mongoose"
 
 // Define the schema
 const itemsSchema = new mongoose.Schema(
@@ -23,7 +23,7 @@ const itemsSchema = new mongoose.Schema(
 )
 
 // Create the model
-const itemsModel = mongoose.model("items",itemsSchema)
+const ItemsModel = mongoose.model("items",itemsSchema)
 
 // Export the model
-module.exports = itemsModel;
+export default ItemsModel;

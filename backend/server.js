@@ -1,11 +1,11 @@
-const express = require("express");
-const colors = require("colors");
-const dotenv = require("dotenv");
-const morgan = require("morgan");
-const cors = require("cors");
+import express from "express";
+import colors from "colors";
+import dotenv from "dotenv";
+import morgan from "morgan";
+import cors from "cors";
 
-const testRoutes = require("./routes/testRoutes");
-const connectDB = require("./config/Database");
+import itemsRoute from "./routes/itemsRoute.js";
+import connectDB from "./config/Database.js";
 
 // config env file
 dotenv.config();
@@ -22,7 +22,7 @@ app.use(cors());
 app.use(morgan("dev"));
 
 // routes ( test route)
-app.use("/api/v1/test", testRoutes);
+app.use("/api/v1/items/", itemsRoute);
 
 // port
 const PORT = process.env.PORT || 8080;
