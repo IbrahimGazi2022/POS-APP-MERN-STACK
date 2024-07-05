@@ -4,7 +4,7 @@ import { Button, Layout, Menu, theme } from 'antd';
 const { Header, Sider, Content } = Layout;
 import { Link } from 'react-router-dom'
 
-const MainLayout = () => {
+const MainLayout = (props) => {
   const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer, borderRadiusLG },
@@ -80,7 +80,7 @@ const MainLayout = () => {
             borderRadius: borderRadiusLG,
           }}
         >
-          Content
+          {props.children}
         </Content>
       </Layout>
     </Layout>

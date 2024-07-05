@@ -1,12 +1,16 @@
-import { useEffect } from "react"
-import Axios from "axios"
-import MainLayout from "../components/MainLayout"
+import { useEffect, useState } from "react";
+import Axios from "axios";
+import { Col, Row } from 'antd';
+import MainLayout from "../components/MainLayout";
+import Item from "../components/Item";
+
 
 const HomePage = () => {
+  const [itemsData, setItemsData] = useState([])
 
   const getAllItems = () => {
     Axios.get('/api/v1/items/get-all-items').then((response) => {
-      console.log(response.data)
+      setItemsData(response.data)
     }).catch((error) => {
       console.log(error)
     })
@@ -18,7 +22,15 @@ const HomePage = () => {
 
   return (
     <MainLayout>
-      <h1>HomePage</h1>
+      <Row>
+        {itemsData.map((item) => {
+          return (
+            <Col xs={24} lg={6} md={12} sm={6}>
+              <Item item={item} />
+            </Col>
+          )
+        })}
+      </Row>
     </MainLayout>
   )
 }
