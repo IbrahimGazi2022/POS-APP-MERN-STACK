@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { MenuFoldOutlined, HomeOutlined, ShoppingCartOutlined, MoneyCollectOutlined, UserAddOutlined, LogoutOutlined, UnorderedListOutlined} from '@ant-design/icons';
+import { MenuFoldOutlined, HomeOutlined, ShoppingCartOutlined, MoneyCollectOutlined, UserAddOutlined, LogoutOutlined, UnorderedListOutlined } from '@ant-design/icons';
 import { Button, Layout, Menu, theme } from 'antd';
 const { Header, Sider, Content } = Layout;
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 const MainLayout = (props) => {
   const [collapsed, setCollapsed] = useState(false);
+  const { cartItems } = useSelector((state) => state.root)
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
@@ -70,6 +72,11 @@ const MainLayout = (props) => {
               height: 64,
             }}
           />
+          <div className='cart-count'>
+            <b><h3>{cartItems.length}</h3>
+            </b>
+            <ShoppingCartOutlined />
+          </div>
         </Header>
         <Content
           style={{
