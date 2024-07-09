@@ -5,7 +5,7 @@ import "../resources/item.css";
 const Item = ({ item }) => {
   const dispatch = useDispatch();
   function addToCart() {
-    dispatch({ type: "addToCart", payload: { ...item, quantity: 1 } });
+    dispatch({ type: "addToCart", payload: { ...item,} });
   }
   return (
     <div className='item'>
