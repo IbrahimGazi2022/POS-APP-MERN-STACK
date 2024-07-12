@@ -23,6 +23,13 @@ const CartPage = () => {
         }
     };
 
+    const deleteCartItem = (record) => {
+        dispatch({
+            type: "deleteCart",
+            payload: record
+        });
+    };
+
 
     const columns = [
         {
@@ -51,7 +58,7 @@ const CartPage = () => {
         {
             title: 'Action',
             dataIndex: '_id',
-            render: (id, record) => <DeleteOutlined />
+            render: (id, record) => <DeleteOutlined onClick={() => deleteCartItem(record)} />
         },
     ];
     return (
