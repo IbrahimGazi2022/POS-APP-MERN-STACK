@@ -5,11 +5,12 @@ const { Header, Sider, Content } = Layout;
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import { Spin } from 'antd';
 
 const MainLayout = (props) => {
   const navigate = useNavigate();
   const [collapsed, setCollapsed] = useState(false);
-  const { cartItems } = useSelector((state) => state.root);
+  const { cartItems, loading } = useSelector((state) => state.root);
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
@@ -20,6 +21,11 @@ const MainLayout = (props) => {
 
   return (
     <Layout>
+      <div className='loader'>
+        {loading && (
+          <Spin size='large'/>
+        )}
+      </div>
       <Sider trigger={null} collapsible collapsed={collapsed}>
         <div className="demo-logo-vertical" />
         <h3 className="title">Ibrahim - The Coder</h3>
@@ -80,9 +86,9 @@ const MainLayout = (props) => {
             }}
           />
           <div className='cart-count' onClick={() => navigate('/cart')}>
-            <b><h3>{cartItems.length}</h3>
+            <b><h2>{cartItems.length}</h2>
             </b>
-            <ShoppingCartOutlined />
+            <ShoppingCartOutlined className='cart-icon' />
           </div>
         </Header>
         <Content
