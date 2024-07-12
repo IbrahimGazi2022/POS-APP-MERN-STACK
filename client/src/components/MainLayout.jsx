@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { MenuUnfoldOutlined, MenuFoldOutlined, HomeOutlined, ShoppingCartOutlined, MoneyCollectOutlined, UserAddOutlined, LogoutOutlined, UnorderedListOutlined } from '@ant-design/icons';
 import { Button, Layout, Menu, theme } from 'antd';
 const { Header, Sider, Content } = Layout;
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
 const MainLayout = (props) => {
+  const navigate = useNavigate();
   const [collapsed, setCollapsed] = useState(false);
   const { cartItems } = useSelector((state) => state.root);
   const {
@@ -78,7 +79,7 @@ const MainLayout = (props) => {
               height: 64,
             }}
           />
-          <div className='cart-count'>
+          <div className='cart-count' onClick={() => navigate('/cart')}>
             <b><h3>{cartItems.length}</h3>
             </b>
             <ShoppingCartOutlined />
