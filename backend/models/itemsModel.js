@@ -1,4 +1,4 @@
-import mongoose from "mongoose"
+import mongoose from "mongoose";
 
 // Define the schema
 const itemsSchema = new mongoose.Schema(
@@ -19,11 +19,11 @@ const itemsSchema = new mongoose.Schema(
             type: String,
             required: true
         },
-    }
-)
+    }, { timestamps: true }
+);
 
 // Create the model
-const ItemsModel = mongoose.model("items",itemsSchema)
+const ItemsModel = mongoose.model("items", itemsSchema);
 
 // Export the model
 export default ItemsModel;

@@ -35,4 +35,19 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1000;
-  }
+}
+
+.action-icon svg {
+    margin: 8px;
+}
+
+.item-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.modal-btn {
+    display: flex;
+    justify-content: end;
+}

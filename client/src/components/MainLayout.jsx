@@ -11,9 +11,7 @@ const MainLayout = (props) => {
   const navigate = useNavigate();
   const [collapsed, setCollapsed] = useState(false);
   const { cartItems, loading } = useSelector((state) => state.root);
-  const {
-    token: { colorBgContainer, borderRadiusLG },
-  } = theme.useToken();
+  const { token: { colorBgContainer, borderRadiusLG },} = theme.useToken();
 
   useEffect(() => {
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
@@ -23,7 +21,7 @@ const MainLayout = (props) => {
     <Layout>
       <div className='loader'>
         {loading && (
-          <Spin size='large'/>
+          <Spin size='large'  />
         )}
       </div>
       <Sider trigger={null} collapsible collapsed={collapsed}>
@@ -57,7 +55,7 @@ const MainLayout = (props) => {
             {
               key: '5',
               icon: <UnorderedListOutlined />,
-              label: <Link to="/item">Item</Link>,
+              label: <Link to="/items">Item</Link>,
             },
             {
               key: '6',
