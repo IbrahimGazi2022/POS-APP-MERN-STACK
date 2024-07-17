@@ -20,3 +20,13 @@ export const addItemController = async (req, res) => {
         res.status(400).json(error);
     }
 };
+
+// Edit Item
+export const editItemController = async (req, res) => {
+    try {
+        await ItemsModel.findOneAndUpdate({ _id: req.body.itemId }, req.body);
+        res.send("Item Edited Successfully");
+    } catch (error) {
+        res.status(400).json(error);
+    }
+};
