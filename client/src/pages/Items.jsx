@@ -49,7 +49,7 @@ const Items = () => {
             setEditingItem(record);
             setAddItemModal(true);
           }} />
-          <DeleteOutlined onClick={() => deleteCartItem(record)} />
+          <DeleteOutlined onClick={() => deleteItem(record)} />
         </div>
       )
     },
@@ -96,6 +96,19 @@ const Items = () => {
     }
   };
 
+  const deleteItem = (record) => {
+    dispatch({ type: "showLoading" });
+    axios.post("/api/v1/items/delete-item", { itemId: record._id })
+      .then((response) => {
+        dispatch({ type: "hideLoading" });
+        message.success("Item Delete Successfully");
+        getAllItems();
+      }).catch((error) => {
+        dispatch({ type: "hideLoading" });
+        message.error("Something went wrong");
+        console.log(error);
+      });
+  };
 
 
   return (

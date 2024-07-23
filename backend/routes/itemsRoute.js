@@ -1,5 +1,5 @@
 import express from "express";
-import { itemsController, addItemController, editItemController } from "../controllers/itemsController.js";
+import { itemsController, addItemController, editItemController, deleteItemController } from "../controllers/itemsController.js";
 
 // Router Object
 const router = express.Router();
@@ -12,6 +12,9 @@ router.post("/add-item", addItemController);
 
 // EDIT ITEM || POST 
 router.post("/edit-item", editItemController);
+
+// DELETE ITEM || POST
+router.post("/delete-item", deleteItemController)
 
 export default router;
 
