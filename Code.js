@@ -48,33 +48,33 @@
 
         import mongoose from "mongoose";
 
-        // Define the schema
-        const userSchema = mongoose.Schema(
-            {
-                name: {
-                    type: String,
-                    required: true
-                },
-                userId: {
-                    type: String,
-                    required: true
-                },
-                password: {
-                    type: String,
-                    required: true
-                },
-                verified: {
-                    type: Boolean,
-                    required: true
-                },
-            }, { timestamps: true }
-        );
+    // Define the schema
+    const userSchema = mongoose.Schema(
+        {
+            name: {
+                type: String,
+                required: true
+            },
+            userId: {
+                type: String,
+                required: true
+            },
+            password: {
+                type: String,
+                required: true
+            },
+            verified: {
+                type: Boolean,
+                required: true
+            },
+        }, { timestamps: true }
+    );
 
-        // Create the model
-        const userModel = mongoose.model("users", userSchema);
+    // Create the model
+    const userModel = mongoose.model("users", userSchema);
 
-        // Export the model
-        export default userModel;
+    // Export the model
+    export default userModel;
 
     }
 
@@ -158,14 +158,13 @@
 {
 
     //----- login.js 
-    // submit button a onFinish Function add korte hbe
     // axios & dispatch import korte hbe
 
     const dispatch = useDispatch();
 
     const onFinish = (values) => {
         dispatch({ type: "showLoading" });
-        axios.post('/api/v1/users/login', values);
+        axios.post('/api/v1/users/login', values)
         .then((res) => {
             dispatch({ type: "showLoading" });
             message.success("Login Successfull");

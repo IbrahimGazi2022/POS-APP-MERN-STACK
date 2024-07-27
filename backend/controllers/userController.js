@@ -14,14 +14,16 @@ export const registerController = async (req, res) => {
 // Login User
 export const loginController = async (req, res) => {
     try {
-        await userModel.findOne(
-            {
-                userId: req.body.userId,
-                password: req.body.password,
-                verified: true
-            }
-        );
-        res.send("Login Successfully");
+        const user = await userModel.findOne({
+            userId: req.body.userId,
+            password: req.body.password,
+            verified: true,
+        });
+        if (user) {
+            res.send(user);
+        } else {
+            res.status(400).json({ message: "Login failed", user });
+        }
     } catch (error) {
         res.status(400).json(error);
     }
