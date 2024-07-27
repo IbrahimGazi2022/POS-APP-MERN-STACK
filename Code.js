@@ -41,7 +41,9 @@
 
     {
         //------- 785 theke 794 video porjonto shot dekhe nite hbe age
+
         // route o toiri korte hbe
+
         // create new file models - > userModel.js
 
         import mongoose from "mongoose";
@@ -126,14 +128,14 @@
     {
         //----- Register.js ( 797 )
 
-        // submit button a onFinish Function add korte hbe
+
         // axios & dispatch import korte hbe
 
+        const dispatch = useDispatch();
+
         const onFinish = (values) => {
-            const dispatch = useDispatch();
-            axios.post('/api/v1/users/register', values);
-            dispatch({ type: "showLoading" })
-                .then((res) => {
+            axios.post('/api/v1/users/register', values)
+                .then(() => {
                     dispatch({ type: "showLoading" });
                     message.success("Registration Successfull, Please Wait For Verification");
                 })
@@ -312,7 +314,7 @@
     const { cartItems } = useSelector((state) => state.root); // er pore 
     const [billChargeModal, setBillChargeModal] = useState(false)
 
-        <div className="css ta style kore nite hbe" >
+        <div div className = "css ta style kore nite hbe" >
         <div className="css">
             <h3>SUB TOTAL: <b>{subTotal}$/-</b></h3>
         </div> // er pore
@@ -321,7 +323,7 @@
     </div >
 
         <Modal title="Charge Bill" visible={billChargeModal}) ></Modal>;
-        // akhn cheack kore dekhte hbe j modal kaj kore kina
+    // akhn cheack kore dekhte hbe j modal kaj kore kina
 
     // 829 - 833 number video ta dekhte hbe
 

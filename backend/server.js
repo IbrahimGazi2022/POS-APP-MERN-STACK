@@ -5,6 +5,7 @@ import morgan from "morgan";
 import cors from "cors";
 
 import itemsRoute from "./routes/itemsRoute.js";
+import userRoute from "./routes/userRoute.js"
 import connectDB from "./config/Database.js";
 
 // config env file
@@ -21,8 +22,11 @@ app.use(express.json());
 app.use(cors());
 app.use(morgan("dev"));
 
-// routes ( test route)
+// routes ( item route)
 app.use("/api/v1/items/", itemsRoute);
+
+// routes ( user route)
+app.use("/api/v1/users/", userRoute);
 
 // port
 const PORT = process.env.PORT || 8080;
