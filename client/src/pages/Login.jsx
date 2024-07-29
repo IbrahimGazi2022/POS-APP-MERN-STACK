@@ -1,23 +1,33 @@
 import { Col, Form, Button, Input, Row, message } from 'antd';
-import axios from 'axios';
 import { Link } from "react-router-dom";
+import { useEffect } from 'react';
+import axios from 'axios';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import '../resources/authentication.css';
 
 const Login = () => {
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const onFinish = (values) => {
         dispatch({ type: 'showLoading' });
         axios.post('/api/v1/users/login', values).then((res) => {
             dispatch({ type: 'hideLoading' });
             message.success('Login successfull');
+            localStorage.setItem("pos-user", JSON.stringify(res.data));
+            navigate("/home");
         }).catch(() => {
             dispatch({ type: 'hideLoading' });
             message.error('Something went wrong');
         });
     };
+
+    useEffect(() => {
+        if (localStorage.getItem('pos-user'))
+            navigate("/home");
+    }, []);
 
     return (
         <div className='authentication'>

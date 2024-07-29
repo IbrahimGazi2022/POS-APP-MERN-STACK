@@ -1,11 +1,13 @@
 import { Col, Form, Button, Input, Row, message } from 'antd';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import '../resources/authentication.css';
+import { useEffect } from 'react';
 
 const Register = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const onFinish = (values) => {
         dispatch({ type: "showLoading" });
@@ -20,6 +22,13 @@ const Register = () => {
             });
 
     };
+
+    // if logged in he doesnot go to the register page
+    useEffect(() => {
+        if (localStorage.getItem('pos-user'))
+            navigate("/home");
+    }, []);
+
 
     return (
         <div className='authentication'>
