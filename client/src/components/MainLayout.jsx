@@ -17,7 +17,13 @@ const MainLayout = (props) => {
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
-  
+
+  // Logout Handler
+  const logOutHandler = () => {
+    localStorage.removeItem("pos-user");
+    navigate("/");
+  };
+
   return (
     <Layout>
       <div className='loader'>
@@ -62,7 +68,8 @@ const MainLayout = (props) => {
               key: '6',
               icon: <LogoutOutlined />,
               label: 'Logout',
-            },
+              onClick: logOutHandler,
+            }
 
           ]}
         />
