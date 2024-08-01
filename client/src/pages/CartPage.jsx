@@ -8,7 +8,6 @@ const CartPage = () => {
     const dispatch = useDispatch();
     const { cartItems } = useSelector((state) => state.root);
     const [subTotal, setSubTotal] = useState(0);
-    const [billChargeModal, setBillChargeModal] = useState(false);
 
     const increaseQuantity = (record) => {
         dispatch({
@@ -74,10 +73,6 @@ const CartPage = () => {
         setSubTotal(temp);
     }, [cartItems]);
 
-    // BIll Modal Handler
-    const onFinish = () => {
-
-    };
 
     return (
         <MainLayout>
@@ -88,32 +83,6 @@ const CartPage = () => {
                     <h3>SUB TOTAL: <b>{subTotal}$/-</b></h3>
                 </div>
             </div>
-            <Button type='primary' onClick={() => setBillChargeModal(true)}>Charge Bill</Button>
-
-            {/* Bill Modal */}
-            <Modal title="Charge Bill" open={billChargeModal} onCancel={() => setBillChargeModal(false)} footer={false}>
-                <Form layout='vertical' onFinish={onFinish}>
-                    <Form.Item name="customerName" label="Customer Name">
-                        <Input />
-                    </Form.Item>
-
-                    <Form.Item name="phoneNumber" label="Phone Number">
-                        <Input />
-                    </Form.Item>
-
-                    <Form.Item name="paymentMode" label="Payment Mode">
-                        <Select>
-                            <Select.Option value="cash">Cash</Select.Option>
-                            <Select.Option value="card">Card</Select.Option>
-                        </Select>
-                    </Form.Item>
-
-                    <div className='modal-btn'>
-                        <Button htmlType='submit' type='primary'>Save</Button>
-                    </div>
-                </Form>
-
-            </Modal>
         </MainLayout >
     );
 };
