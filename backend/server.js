@@ -6,6 +6,7 @@ import cors from "cors";
 
 import itemsRoute from "./routes/itemsRoute.js";
 import userRoute from "./routes/userRoute.js"
+import billRoute from "./routes/billRoute.js"
 import connectDB from "./config/Database.js";
 
 // config env file
@@ -27,6 +28,9 @@ app.use("/api/v1/items/", itemsRoute);
 
 // routes ( user route)
 app.use("/api/v1/users/", userRoute);
+
+// routes ( bill route)
+app.use("/api/v1/bills/", billRoute);
 
 // port
 const PORT = process.env.PORT || 8080;
