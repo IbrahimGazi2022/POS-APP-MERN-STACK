@@ -1,13 +1,16 @@
 import MainLayout from '../components/MainLayout';
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import { EyeOutlined } from "@ant-design/icons";
-import { Table } from 'antd';
+import { Button, Table } from 'antd';
 import Modal from 'antd/es/modal/Modal';
+import ReactToPrint from 'react-to-print';
+import { useReactToPrint } from 'react-to-print';
 import "../resources/bill.css";
 
 const Bills = () => {
+    const componentRef = useRef(null);
     const [billsData, setBillsData] = useState([]);
     const [printBillModalVisibility, setPrintBillModalVisibility] = useState(false);
     const [selectedBill, setSelectedBill] = useState(null);
@@ -99,6 +102,10 @@ const Bills = () => {
         getAllBills();
     }, []);
 
+    // Handle React Print Function
+    const handlePrint = useReactToPrint({
+        content: () => componentRef.current,
+    });
 
     return (
         <MainLayout>
@@ -108,7 +115,7 @@ const Bills = () => {
             <Table dataSource={billsData} columns={columns} bordered></Table>
             {printBillModalVisibility && (
                 <Modal title="Bill Details" open={printBillModalVisibility} onCancel={() => { setPrintBillModalVisibility(false); }} footer={false}>
-                    <div>
+                    <div className='invoice-container' ref={componentRef}>
                         <div className='invoice'>
                             <div>
                                 <h1><b>Store Controller</b></h1>
@@ -127,6 +134,9 @@ const Bills = () => {
                             <p><b>Tax</b> : {selectedBill.tax}</p>
                         </div>
 
+                    </div>
+                    <div className='print-btn'>
+                        <Button type='primary' onClick={handlePrint}>Print Bill</Button>
                     </div>
                 </Modal>
             )}
