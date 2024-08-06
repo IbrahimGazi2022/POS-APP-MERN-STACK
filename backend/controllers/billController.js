@@ -9,3 +9,12 @@ export const chargeBillController = async (req, res) => {
         res.status(400).json(error);
     }
 };
+
+export const getAllBillsController = async (req, res) => {
+    try {
+        const bills = await BillModal.find();
+        res.send(bills);
+    } catch (error) {
+        res.status(400).json(error);
+    }
+};

@@ -53,7 +53,7 @@ const Items = () => {
         </div>
       )
     },
-  ]; 3;
+  ];
 
 
   useEffect(() => {

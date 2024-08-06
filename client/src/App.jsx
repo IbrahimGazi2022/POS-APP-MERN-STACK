@@ -2,6 +2,8 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import HomePage from "./pages/HomePage";
 import Items from "./pages/Items";
 import Cart from "./pages/CartPage";
+import Bills from "./pages/Bills";
+import Customers from "./pages/Customers";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 
@@ -13,6 +15,8 @@ const App = () => {
           <Route path="/home" element={<PrivateRoute><HomePage /></PrivateRoute>} />
           <Route path="/cart" element={<PrivateRoute><Cart /></PrivateRoute>} />
           <Route path="/items" element={<PrivateRoute><Items /></PrivateRoute>} />
+          <Route path="/bills" element={<PrivateRoute><Bills /></PrivateRoute>} />
+          <Route path="/customers" element={<PrivateRoute><Customers /></PrivateRoute>} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<Login />} />
