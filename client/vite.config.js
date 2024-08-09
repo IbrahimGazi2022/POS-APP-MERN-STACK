@@ -5,7 +5,11 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/api': 'http://localhost:8080'
+      '/api': {
+        target: 'https://pos-app-mern-backend.vercel.app',
+        changeOrigin: true,
+        secure: true,
+      }
     }
   },
 });
