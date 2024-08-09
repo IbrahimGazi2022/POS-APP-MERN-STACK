@@ -5,8 +5,8 @@ import morgan from "morgan";
 import cors from "cors";
 
 import itemsRoute from "./routes/itemsRoute.js";
-import userRoute from "./routes/userRoute.js"
-import billRoute from "./routes/billRoute.js"
+import userRoute from "./routes/userRoute.js";
+import billRoute from "./routes/billRoute.js";
 import connectDB from "./config/Database.js";
 
 // config env file
@@ -20,8 +20,12 @@ const app = express();
 
 // middleware
 app.use(express.json());
-app.use(cors());
 app.use(morgan("dev"));
+app.use(cors({
+  origin: ["https://pos-app-mern-prod.vercel.app"],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 
 // routes ( item route)
 app.use("/api/v1/items/", itemsRoute);
