@@ -21,12 +21,11 @@ const app = express();
 // middleware
 app.use(express.json());
 app.use(morgan("dev"));
-const corsOptions = {
-  origin: 'https://pos-app-mern-prod.vercel.app/',
-  credentials: true,
-  optionSuccessStatus: 200
-};
-app.use(cors(corsOptions));
+app.use(cors({
+  origin: ["https://pos-app-mern-prod.vercel.app"],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 
 // routes ( item route)
 app.use("/api/v1/items/", itemsRoute);
