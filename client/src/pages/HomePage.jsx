@@ -47,7 +47,7 @@ const HomePage = () => {
       <div className="category">
         {categories.map((category) => {
           return (
-            <div onClick={() => setSelectedCategory(category.name)} className={`${selectedCategory === category.name && 'selected-category'}`}>
+            <div key={category.name} onClick={() => setSelectedCategory(category.name)} className={`${selectedCategory === category.name && 'selected-category'}`}>
               <h4>{category.name}</h4>
               <img src={category.imageURL} height="60" width="60" />
             </div>
@@ -57,8 +57,8 @@ const HomePage = () => {
       <Row>
         {itemsData.filter((i) => i.category === selectedCategory).map((item) => {
           return (
-            <Col xs={24} lg={6} md={12} sm={6}>
-              <Item item={item} />
+            <Col xs={24} lg={6} md={12} sm={6} key={item._id}>
+              <Item item={item} key={item._id} />
             </Col>
           );
         })}
