@@ -11,7 +11,7 @@ const Register = () => {
 
     const onFinish = (values) => {
         dispatch({ type: "showLoading" });
-        axios.post('/api/v1/users/register', values)
+        axios.post('https://pos-app-mern-backend.vercel.app/api/v1/users/register', values)
             .then((res) => {
                 dispatch({ type: "hideLoading" });
                 message.success("Registration Successfull, Please Wait For Verification");
