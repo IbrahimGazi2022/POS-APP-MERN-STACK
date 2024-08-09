@@ -13,7 +13,7 @@ const Items = () => {
 
   const getAllItems = () => {
     dispatch({ type: "showLoading" });
-    axios.get('/api/v1/items/get-all-items').then((response) => {
+    axios.get('https://pos-app-mern-backend.vercel.app/api/v1/items/get-all-items').then((response) => {
       setItemsData(response.data);
       dispatch({ type: "hideLoading" });
     }).catch((error) => {
@@ -80,7 +80,7 @@ const Items = () => {
     }
     else {
       axios
-        .post("/api/v1/items/edit-item", { ...values, itemId: editingItem._id })
+        .post("https://pos-app-mern-backend.vercel.app/api/v1/items/edit-item", { ...values, itemId: editingItem._id })
         .then((response) => {
           dispatch({ type: "hideLoading" });
           message.success("Item edited successfully");
@@ -98,7 +98,7 @@ const Items = () => {
 
   const deleteItem = (record) => {
     dispatch({ type: "showLoading" });
-    axios.post("/api/v1/items/delete-item", { itemId: record._id })
+    axios.post("https://pos-app-mern-backend.vercel.app/api/v1/items/delete-item", { itemId: record._id })
       .then((response) => {
         dispatch({ type: "hideLoading" });
         message.success("Item Delete Successfully");

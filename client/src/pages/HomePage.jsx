@@ -29,7 +29,7 @@ const HomePage = () => {
 
   const getAllItems = () => {
     dispatch({ type: "showLoading" });
-    Axios.get('/api/v1/items/get-all-items').then((response) => {
+    Axios.get('https://pos-app-mern-backend.vercel.app/api/v1/items/get-all-items').then((response) => {
       setItemsData(response.data);
       dispatch({ type: "hideLoading" });
     }).catch((error) => {

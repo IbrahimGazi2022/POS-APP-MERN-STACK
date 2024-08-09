@@ -13,7 +13,7 @@ const Login = () => {
 
     const onFinish = (values) => {
         dispatch({ type: 'showLoading' });
-        axios.post('/api/v1/users/login', values).then((res) => {
+        axios.post('https://pos-app-mern-backend.vercel.app/api/v1/users/login', values).then((res) => {
             dispatch({ type: 'hideLoading' });
             message.success('Login successfull');
             localStorage.setItem("pos-user", JSON.stringify(res.data));

@@ -18,7 +18,7 @@ const Bills = () => {
 
     const getAllBills = () => {
         dispatch({ type: "showLoading" });
-        axios.get('/api/v1/bills/get-all-bills').then((response) => {
+        axios.get('https://pos-app-mern-backend.vercel.app/api/v1/bills/get-all-bills').then((response) => {
             dispatch({ type: "hideLoading" });
             const data = response.data;
             data.reverse();

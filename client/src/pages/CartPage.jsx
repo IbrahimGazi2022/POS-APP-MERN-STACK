@@ -90,7 +90,7 @@ const CartPage = () => {
         };
 
         axios
-            .post("/api/v1/bills/charge-bill", reqObject)
+            .post("https://pos-app-mern-backend.vercel.app/api/v1/bills/charge-bill", reqObject)
             .then(() => {
                 message.success("Bill Charged Successfully");
                 navigate('/bills');
